@@ -1,0 +1,268 @@
+{% extends 'base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block main %}
+
+{#<div class="container-fluid px-4 py-2">#}
+{#        <main>#}
+{#<div class="w-50 mx-auto my-4 border border-dark rounded p-4">#}
+{#<h4 class="mb-4">获取资源日志</h4>#}
+{#    <form action="/upload_event_log" method="POST" enctype="multipart/form-data">#}
+{#        <input id="csrf_token" name="csrf_token" type="hidden" value="IjQ5NjBjN2VjMDExZTVmYTM1YjAyNzgxOTE4YTBjYTIyYTY2Y2M3NDMi.YemMkg.QH9MxMl2P4gbhOPRW43AfSk0wfc">#}
+{#        <div class="form-group w-50 mx-auto small">#}
+{#<div class="form-group  required"><label class="control-label" for="f_log">选择具有以下扩展名之一的事件日志文件</label>#}
+{#          <input id="f_log" name="f_log" required="" type="file">#}
+{#  </div>#}
+{#        </div>#}
+{#        <div class="form-group w-75 mx-auto">#}
+{#            <ul class="list-group-flush">#}
+{#                <li class="list-group-item small">#}
+{#                    <code> .csv </code>#}
+{#                </li>#}
+{#            </ul>#}
+{#        </div>#}
+{#    <input class="btn btn-btn btn-primary" id="submit" name="submit" type="submit" value="上传">#}
+{#    </form>#}
+{#</div>#}
+{#</main></div>#}
+
+
+
+
+
+
+
+<main>
+<div class="w-50 mx-auto my-4 border border-dark rounded p-4">
+<h4 class="mb-4">获取资源日志</h4>
+    <form action="/reset_event_log" method="GET">
+        <input class="btn btn-secondary text-white" type="submit" value="清除数据并重设参数">
+    </form>
+    <form action="#" method="POST" enctype="multipart/form-data">
+        <div class="config-section row my-4 p-2 border">
+             <div class="col-md-6">
+<div class="form-group  required"><label class="control-label" for="resource_column">资源列</label>
+          <input class="form-control" id="resource_column" name="resource_column" required="" type="text" value="">
+  </div>
+             </div>
+        </div>
+        <div class="config-section row my-4 p-2 border">
+             <div class="col-md-6">
+<div class="form-group  required"><label class="control-label" for="case_type">案例类型列</label>
+          <input class="form-control" id="case_type" name="case_type" required="" type="text" value="">
+  </div>
+                </div>
+        </div>
+
+        <div class="config-section row my-4 p-2 border">
+            <div class="config-method col-md-6">
+<div class="form-group  required"><label class="control-label" for="activity_column">活动类型列</label>
+          <input class="form-control" id="activity_column" name="activity_column" required="" type="text" value="">
+  </div>
+{#<div class="form-group  required"><label class="control-label" for="get_activity_type_method">Get activity type methods from activity columns</label>#}
+{##}
+{#          <select class="form-control" config_id="gatm" config_type="method" id="get_activity_type_method" name="get_activity_type_method" required=""><option selected="" value="None">(select a method)</option><option value="0">an activity is an activity type</option><option value="1">semantic similarity clustering</option></select>#}
+{##}
+{#  </div>#}
+            </div>
+{#            <div class="config-method-options col-md-6">#}
+{#<div class="form-group " style="display: none;"><label class="control-label" for="activity_type_group_num">the number of activity type group</label>#}
+{##}
+{#          <input class="form-control" config_id="activity_type_group_num" config_type="param" id="activity_type_group_num" name="activity_type_group_num" prerequisite_id="gatm" prerequisite_value="1" type="text" value="">#}
+{##}
+{#  </div>#}
+{##}
+{##}
+{#            </div>#}
+        </div>
+
+        <div class="config-section row my-4 p-2 border">
+            <div class="config-method col-md-6">
+
+<div class="form-group  required"><label class="control-label" for="timestamp_column">时间列</label>
+          <input class="form-control" id="timestamp_column" name="timestamp_column" required="" type="text" value="">
+  </div>
+
+<div class="form-group  required"><label class="control-label" for="time_type_method">时间类型划分方法</label>
+
+          <select class="form-control" id="time_type_method" name="time_type_method" required=""><option selected="" value="None">(选择一种划分方法)</option>
+              <option value="0">年</option>
+              <option value="1">季度</option>
+              <option value="2">月</option>
+              <option value="3">周</option>
+              <option value="4">日</option>
+              <option value="5">小时</option></select>
+
+  </div>
+
+
+{#<div class="form-group  required"><label class="control-label" for="is_event_frequency">is event frequency</label>#}
+{##}
+{#          <select class="form-control" config_id="normal_frequency_range" config_type="method" id="is_event_frequency" name="is_event_frequency" required=""><option selected="" value="None">(select)</option><option value="1">yes</option><option value="0">no</option></select>#}
+{##}
+{#  </div>#}
+
+
+
+            </div>
+            <div class="config-method-options col-md-6 ">
+
+
+
+
+
+{#<div class="form-group " style="display: none;"><label class="control-label" for="normal_frequency_range">normal frequency range(eg:[10,20))</label>#}
+{##}
+{#          <input class="form-control" config_id="normal_frequency_range" config_type="param" id="normal_frequency_range" name="normal_frequency_range" prerequisite_id="normal_frequency_range" prerequisite_value="1" type="text" value="">#}
+{##}
+{#  </div>#}
+
+
+            </div>
+        </div>
+
+            <div class="row">
+
+
+
+
+
+
+
+
+
+
+
+
+    <input class="btn btn-btn btn-success" id="submit" name="submit" type="submit" value="提交">
+
+
+
+
+
+        </div>
+    </form>
+
+
+
+</div>
+</main>
+
+
+
+{#<div class="w-50 mx-auto my-4 border border-dark rounded p-4">#}
+{#<h4 class="mb-4">获取资源日志</h4>#}
+{##}
+{#    {% if not has_event_log %}#}
+{#    <form action={{ url_for('get_resource_log.upload_event_log') }}#}
+{#        method="POST" enctype="multipart/form-data">#}
+{#        {{ event_log_upload_form.csrf_token }}#}
+{#        <div class="form-group w-50 mx-auto small">#}
+{#                {{ wtf.form_field(event_log_upload_form.f_log) }}#}
+{#        </div>#}
+{#        <div class="form-group w-75 mx-auto">#}
+{#            <ul class="list-group-flush">#}
+{#                <li class="list-group-item small">#}
+{#                    <code> .csv </code>#}
+{#                </li>#}
+{#            </ul>#}
+{#        </div>#}
+{##}
+{#            {{ wtf.form_field(#}
+{#            event_log_upload_form.submit,#}
+{#            button_map={'submit': 'btn btn-primary'}#}
+{#        )}}#}
+{#    </form>#}
+{#    {% else %}#}
+{#    {% endif %}#}
+{##}
+{#    {% if has_event_log %}#}
+{#    <form action="{{ url_for('get_resource_log.reset_event_log') }}" method="GET">#}
+{#        <input class="btn btn-secondary text-white"#}
+{#            type="submit" value="Clear and Reset">#}
+{#    </form>#}
+{##}
+{##}
+{#    <form action={{ url_for('get_resource_log.get_resource_log') }} method="POST" enctype="multipart/form-data">#}
+{#        <div class="config-section row my-4 p-2 border">#}
+{#             <div class="col-md-6">#}
+{#                   {{ wtf.form_field(get_resource_properties.resource_column) }}#}
+{#             </div>#}
+{#        </div>#}
+{##}
+{#        <div class="config-section row my-4 p-2 border">#}
+{#             <div class="col-md-6">#}
+{#                   {{ wtf.form_field(get_resource_properties.case_type) }}#}
+{#                </div>#}
+{#        </div>#}
+{##}
+{#        <div class="config-section row my-4 p-2 border">#}
+{#            <div class="config-method col-md-6">#}
+{#                {{ wtf.form_field(get_resource_properties.activity_column) }}#}
+{#                {{ wtf.form_field(get_resource_properties.get_activity_type_method) }}#}
+{##}
+{#            </div>#}
+{#            <div class="config-method-options col-md-6">#}
+{#                {{ wtf.form_field(get_resource_properties.activity_type_group_num) }}#}
+{#            </div>#}
+{#        </div>#}
+{##}
+{#        <div class="config-section row my-4 p-2 border">#}
+{#            <div class="config-method col-md-6">#}
+{#                {{ wtf.form_field(get_resource_properties.timestamp_column) }}#}
+{#                {{ wtf.form_field(get_resource_properties.time_type_method) }}#}
+{#                {{ wtf.form_field(get_resource_properties.is_event_frequency) }}#}
+{##}
+{#            </div>#}
+{#            <div class="config-method-options col-md-6 ">#}
+{#             {{ wtf.form_field(get_resource_properties.normal_frequency_range) }}#}
+{#            </div>#}
+{#        </div>#}
+{##}
+{#            <div class="row">#}
+{#        {{ wtf.form_field(#}
+{#            get_resource_properties.submit,#}
+{#            button_map={'submit': 'btn btn-success'}#}
+{#        )}}#}
+{#        </div>#}
+{#    </form>#}
+{#    {% else %}#}
+{#    {% endif %}#}
+{##}
+{##}
+{#</div>#}
+{#</div>#}
+
+{% endblock %}
+{% block javascript %}
+<script>
+    $(document).ready(function(){
+        // hide all options to of methods
+        $(".config-method-options > div").hide();
+        // attach event listeners to methods
+        $(".config-method> .form-group > .form-control").change(function(){
+            var id=$(this).attr("config_id");
+            var v=$(this).val();
+
+            $(this).find('option[value="None"]').remove();
+
+            for (var div of $(".config-method-options > div")){
+                var cfgOpt=$(".form-control",div);
+                if(cfgOpt.attr("prerequisite_id")==id){
+                    if(cfgOpt.attr("prerequisite_value").split(",").includes(v)){
+                        // 设置属性和值
+                        $(cfgOpt).prop("disabled", false);
+                        $(div).show();
+                    }else {
+                        $(cfgOpt).prop("disabled", true);
+                        $(div).hide();
+                    }
+                }else {
+                    // do nothing
+                }
+            }
+        });
+    });
+
+</script>
+{% endblock %}

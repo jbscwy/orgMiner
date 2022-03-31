@@ -1,0 +1,661 @@
+{% extends 'base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block main %}
+<!-- Outer row-->
+<div class="row">
+
+{#{% if session['demo'] == True %}#}
+{#<div class="small w-100 alert alert-info fade show" role="alert">#}
+{#    You are viewing a toy example. Click #}
+{#    <span id="show-toy-log"><a href="#">here</a></span>#}
+{#    to show the corresponding toy event log used as input.#}
+{#</div>#}
+{#{% endif %}#}
+
+<!-- Left panel: for model visualization -->
+<div class="col-9">
+    <!-- Organizational model view-->
+    <div class="row my-3" id="view-org-m">
+    <div class="col">
+        <div class="row shadow-sm">
+        <div class="col-4 px-0">
+            <ul class="nav nav-pills small">
+                <li class="nav-item">
+                    <a class="nav-link bg-info text-white active">
+                        Organizational model view
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-8 px-0">
+            <ul class="nav nav-pills small float-right">
+                <li class="nav-item ml-2">
+                    <div class="nav-link custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="switch-view-proc-m">
+                    <label class="custom-control-label" for="switch-view-proc-m">
+                        Toggle process model view
+                    </label>
+                    </div>
+                </li>
+                <li class="nav-item ml-2">
+                </li>
+                <li class="nav-item ml-2">
+                    <a class="nav-link bg-secondary text-white reset-btn" label="organizational-model">
+                        Reset view
+                    </a>
+                </li>
+                <li class="nav-item ml-2">
+                    <a class="nav-link bg-secondary text-white export-btn" label="organizational-model">
+                        Export
+                    </a>
+                </li>
+            </ul>
+        </div>
+        </div>
+
+        <div class="row">
+        <div class="col mx-auto svg-container border border-info rounded
+            text-center shadow" id="canvas-org-m" label="organizational-model">
+        <svg width="1554.530834" viewBox="0 0 1165.8981254999999 332" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="332pt">
+<g id="graph0" class="graph" transform="translate(-67.37137816566894,281.37657220489325) scale(0.6597539553864472)">
+<title>%0</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-328 1737.63,-328 1737.63,4 -4,4"></polygon>
+<!-- group_invis -->
+<!-- mode_L1_invis -->
+<!-- group_invis&#45;&#45;mode_L1_invis -->
+<!-- group|::|0 -->
+<g id="node5" class="node">
+<title style="">group|::|0</title>
+<polygon fill="none" stroke="#98f5ff" stroke-width="2" points="857.1854,-239.5623 800.6632,-252 744.141,-239.5623 744.1937,-219.4377 857.1326,-219.4377 857.1854,-239.5623"></polygon>
+<text text-anchor="middle" x="800.6632" y="-229.8" font-family="Helvetica,sans-Serif" font-size="14.00" fill="rgb(139, 0, 0)">Group 0</text>
+</g><g id="node2" class="node">
+<title style="">resource|::|Bob</title>
+<ellipse fill="#ffd700" stroke="#ffd700" cx="764.6632" cy="-306" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="764.6632" y="-303" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">Bob</text>
+</g>
+<!-- group|::|1 -->
+<!-- group|::|1 -->
+<g id="node6" class="node">
+<title style="">group|::|1</title>
+<polygon fill="#98f5ff" stroke="#98f5ff" points="989.1854,-239.5623 932.6632,-252 876.141,-239.5623 876.1937,-219.4377 989.1326,-219.4377 989.1854,-239.5623"></polygon>
+<text text-anchor="middle" x="932.6632" y="-229.8" font-family="Helvetica,sans-Serif" font-size="14.00" fill="#000000">Group 1</text>
+</g>
+<!-- group|::|2 -->
+
+<!-- group|::|2 -->
+<g id="node7" class="node">
+<title style="">group|::|2</title>
+<polygon fill="#98f5ff" stroke="#98f5ff" points="1121.1854,-239.5623 1064.6632,-252 1008.141,-239.5623 1008.1937,-219.4377 1121.1326,-219.4377 1121.1854,-239.5623"></polygon>
+<text text-anchor="middle" x="1064.6632" y="-229.8" font-family="Helvetica,sans-Serif" font-size="14.00" fill="#000000">Group 2</text>
+</g>
+<!-- group|::|3 -->
+<g id="edge9" class="edge">
+<title>group|::|0--mode|::|(CT.VIP,*,*)</title>
+<path fill="none" stroke="#98f5ff" d="M777.3912,-219.4297C757.7017,-207.1024 729.5936,-189.5042 709.6922,-177.0442"></path>
+</g>
+<!-- group|::|3 -->
+<g id="node8" class="node">
+<title style="">group|::|3</title>
+<polygon fill="#98f5ff" stroke="#98f5ff" points="1253.1854,-239.5623 1196.6632,-252 1140.141,-239.5623 1140.1937,-219.4377 1253.1326,-219.4377 1253.1854,-239.5623"></polygon>
+<text text-anchor="middle" x="1196.6632" y="-229.8" font-family="Helvetica,sans-Serif" font-size="14.00" fill="#000000">Group 3</text>
+</g><g id="node3" class="node">
+<title style="">resource|::|Pete</title>
+<ellipse fill="#ffd700" stroke="#ffd700" cx="836.6632" cy="-306" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="836.6632" y="-303" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">Pete</text>
+</g>
+<!-- mode|::|(CT.VIP,*,*) -->
+
+<!-- mode|::|(CT.VIP,*,*) -->
+<g id="node10" class="node">
+<title style="">mode|::|(CT.VIP,*,*)</title>
+<polygon fill="none" stroke="#dcdcdc" stroke-width="2" points="725.8,-154.5442 725.8,-169.4558 702.2884,-180 669.0379,-180 645.5263,-169.4558 645.5263,-154.5442 669.0379,-144 702.2884,-144 725.8,-154.5442"></polygon>
+<text text-anchor="middle" x="685.6632" y="-159" font-family="Helvetica,sans-Serif" font-size="10.00" fill="rgb(205, 0, 0)">CT.VIP,*,*</text>
+</g><g id="edge1" class="edge">
+<title>group|::|0--resource|::|Bob</title>
+<path fill="none" stroke="#ffd700" d="M792.5223,-250.2817C786.8184,-261.6895 779.2043,-276.9177 773.3778,-288.5708"></path>
+</g>
+<!-- mode|::|(CT.normal,*,*) -->
+<g id="edge10" class="edge">
+<title>group|::|0--mode|::|(CT.normal,*,*)</title>
+<path fill="none" stroke="#98f5ff" d="M848.826,-219.4297C893.5137,-205.9108 959.1557,-186.0527 1000.3707,-173.5843"></path>
+</g>
+<!-- mode|::|(CT.normal,*,*) --><!-- mode|::|(CT.VIP,*,*) -->
+<!-- mode|::|(CT.VIP,*,TT.afternoon) -->
+<g id="node13" class="node">
+<title style="">mode|::|(CT.VIP,*,TT.afternoon)</title>
+<polygon fill="#dcdcdc" stroke="#dcdcdc" points="540.2485,-82.5442 540.2485,-97.4558 496.5574,-108 434.7689,-108 391.0779,-97.4558 391.0779,-82.5442 434.7689,-72 496.5574,-72 540.2485,-82.5442"></polygon>
+<text text-anchor="middle" x="465.6632" y="-87" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">CT.VIP,*,TT.afternoon</text>
+</g>
+<!-- mode|::|(CT.VIP,*,*)&#45;&#45;mode|::|(CT.VIP,*,TT.afternoon) -->
+<g id="edge3" class="edge">
+<title>mode|::|(CT.VIP,*,*)--mode|::|(CT.VIP,*,TT.afternoon)</title>
+<path fill="none" stroke="#000000" d="M652.7269,-151.2209C614.9684,-138.8635 552.8644,-118.5386 510.6634,-104.7274"></path>
+</g>
+<!-- mode|::|(CT.VIP,*,TT.morning) -->
+<g id="node14" class="node">
+<title style="">mode|::|(CT.VIP,*,TT.morning)</title>
+<polygon fill="none" stroke="#dcdcdc" stroke-width="2" points="756.2712,-82.5442 756.2712,-97.4558 714.91,-108 656.4164,-108 615.0551,-97.4558 615.0551,-82.5442 656.4164,-72 714.91,-72 756.2712,-82.5442"></polygon>
+<text text-anchor="middle" x="685.6632" y="-87" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#cd0000">CT.VIP,*,TT.morning</text>
+</g>
+<!-- mode|::|(CT.VIP,*,*)&#45;&#45;mode|::|(CT.VIP,*,TT.morning) -->
+<g id="edge4" class="edge">
+<title>mode|::|(CT.VIP,*,*)--mode|::|(CT.VIP,*,TT.morning)</title>
+<path fill="none" stroke="#000000" d="M685.6632,-143.8314C685.6632,-133 685.6632,-119.2876 685.6632,-108.4133"></path>
+</g>
+<!-- mode|::|(CT.normal,*,*) -->
+<g id="node11" class="node">
+<title style="">mode|::|(CT.normal,*,*)</title>
+<polygon fill="none" stroke="#dcdcdc" stroke-width="2" points="1088.0936,-154.5442 1088.0936,-169.4558 1059.1379,-180 1018.1884,-180 989.2328,-169.4558 989.2328,-154.5442 1018.1884,-144 1059.1379,-144 1088.0936,-154.5442"></polygon>
+<text text-anchor="middle" x="1038.6632" y="-159" font-family="Helvetica,sans-Serif" font-size="10.00" fill="rgb(205, 0, 0)">CT.normal,*,*</text>
+</g><!-- group_invis&#45;&#45;mode_L1_invis --><g id="edge2" class="edge">
+<title>group|::|0--resource|::|Pete</title>
+<path fill="none" stroke="#ffd700" d="M808.804,-250.2817C814.5079,-261.6895 822.122,-276.9177 827.9486,-288.5708"></path>
+</g>
+
+
+<!-- mode|::|(CT.normal,*,TT.afternoon) -->
+<g id="node15" class="node">
+<title style="">mode|::|(CT.normal,*,TT.afternoon)</title>
+<polygon fill="none" stroke="#dcdcdc" stroke-width="2" points="1123.0419,-82.5442 1123.0419,-97.4558 1073.614,-108 1003.7124,-108 954.2844,-97.4558 954.2844,-82.5442 1003.7124,-72 1073.614,-72 1123.0419,-82.5442"></polygon>
+<text text-anchor="middle" x="1038.6632" y="-87" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#cd0000">CT.normal,*,TT.afternoon</text>
+</g>
+<!-- mode|::|(CT.normal,*,*)&#45;&#45;mode|::|(CT.normal,*,TT.afternoon) -->
+<g id="edge5" class="edge">
+<title>mode|::|(CT.normal,*,*)--mode|::|(CT.normal,*,TT.afternoon)</title>
+<path fill="none" stroke="#000000" d="M1038.6632,-143.8314C1038.6632,-133 1038.6632,-119.2876 1038.6632,-108.4133"></path>
+</g>
+<!-- mode|::|(CT.normal,*,TT.morning) -->
+<g id="node16" class="node">
+<title style="">mode|::|(CT.normal,*,TT.morning)</title>
+<polygon fill="#dcdcdc" stroke="#dcdcdc" points="1477.0648,-82.5442 1477.0648,-97.4558 1429.9666,-108 1363.3597,-108 1316.2616,-97.4558 1316.2616,-82.5442 1363.3597,-72 1429.9666,-72 1477.0648,-82.5442"></polygon>
+<text text-anchor="middle" x="1396.6632" y="-87" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000" style="">CT.normal,*,TT.morning</text>
+</g>
+<!-- mode|::|(CT.normal,*,*)&#45;&#45;mode|::|(CT.normal,*,TT.morning) -->
+<g id="edge6" class="edge">
+<title>mode|::|(CT.normal,*,*)--mode|::|(CT.normal,*,TT.morning)</title>
+<path fill="none" stroke="#000000" d="M1084.0041,-152.8812C1148.0692,-139.9966 1265.2046,-116.4386 1336.4882,-102.1022"></path>
+</g>
+<!-- mode_L3_invis -->
+<!-- mode_L2_invis&#45;&#45;mode_L3_invis -->
+<!-- mode|::|(CT.VIP,AT.check,TT.afternoon) -->
+<g id="node18" class="node">
+<title style="">mode|::|(CT.VIP,AT.check,TT.afternoon)</title>
+<polygon fill="#dcdcdc" stroke="#dcdcdc" points="345.9366,-10.5442 345.9366,-25.4558 287.7836,-36 205.5428,-36 147.3898,-25.4558 147.3898,-10.5442 205.5428,0 287.7836,0 345.9366,-10.5442"></polygon>
+<text text-anchor="middle" x="246.6632" y="-15" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">CT.VIP,AT.check,TT.afternoon</text>
+</g>
+<!-- mode|::|(CT.VIP,*,TT.afternoon)&#45;&#45;mode|::|(CT.VIP,AT.check,TT.afternoon) -->
+<g id="edge7" class="edge">
+<title>mode|::|(CT.VIP,*,TT.afternoon)--mode|::|(CT.VIP,AT.check,TT.afternoon)</title>
+<path fill="none" stroke="#000000" d="M420.8168,-75.256C384.7767,-63.4072 334.1784,-46.7721 296.8032,-34.4844"></path>
+</g>
+<!-- mode|::|(CT.VIP,AT.decide,TT.afternoon) -->
+<!-- mode|::|(CT.VIP,AT.decide,TT.afternoon) -->
+<g id="node19" class="node">
+<title style="">mode|::|(CT.VIP,AT.decide,TT.afternoon)</title>
+<polygon fill="#dcdcdc" stroke="#dcdcdc" points="567.2805,-10.5442 567.2805,-25.4558 507.7544,-36 423.5719,-36 364.0459,-25.4558 364.0459,-10.5442 423.5719,0 507.7544,0 567.2805,-10.5442"></polygon>
+<text text-anchor="middle" x="465.6632" y="-15" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">CT.VIP,AT.decide,TT.afternoon</text>
+</g>
+<!-- mode|::|(CT.VIP,*,TT.afternoon)&#45;&#45;mode|::|(CT.VIP,AT.decide,TT.afternoon) -->
+
+<!-- mode|::|(CT.VIP,*,TT.afternoon)&#45;&#45;mode|::|(CT.VIP,AT.decide,TT.afternoon) -->
+<g id="edge8" class="edge">
+<title>mode|::|(CT.VIP,*,TT.afternoon)--mode|::|(CT.VIP,AT.decide,TT.afternoon)</title>
+<path fill="none" stroke="#000000" d="M465.6632,-71.8314C465.6632,-61 465.6632,-47.2876 465.6632,-36.4133"></path>
+</g>
+
+<!-- mode|::|(CT.VIP,AT.register,TT.morning) -->
+<g id="node20" class="node">
+<title style="">mode|::|(CT.VIP,AT.register,TT.morning)</title>
+<polygon fill="none" stroke="#dcdcdc" stroke-width="2" points="785.8515,-10.5442 785.8515,-25.4558 727.1626,-36 644.1638,-36 585.4748,-25.4558 585.4748,-10.5442 644.1638,0 727.1626,0 785.8515,-10.5442"></polygon>
+<text text-anchor="middle" x="685.6632" y="-15" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#cd0000">CT.VIP,AT.register,TT.morning</text>
+</g>
+<!-- mode|::|(CT.VIP,*,TT.morning)&#45;&#45;mode|::|(CT.VIP,AT.register,TT.morning) -->
+<g id="edge11" class="edge">
+<title>mode|::|(CT.VIP,*,TT.morning)--mode|::|(CT.VIP,AT.register,TT.morning)</title>
+<path fill="none" stroke="#000000" d="M685.6632,-71.8314C685.6632,-61 685.6632,-47.2876 685.6632,-36.4133"></path>
+</g>
+<!-- mode|::|(CT.normal,AT.contact,TT.afternoon) -->
+<g id="node21" class="node">
+<title style="">mode|::|(CT.normal,AT.contact,TT.afternoon)</title>
+<polygon fill="#dcdcdc" stroke="#dcdcdc" points="1029.1934,-10.5442 1029.1934,-25.4558 963.2747,-36 870.0516,-36 804.1329,-25.4558 804.1329,-10.5442 870.0516,0 963.2747,0 1029.1934,-10.5442"></polygon>
+<text text-anchor="middle" x="916.6632" y="-15" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">CT.normal,AT.contact,TT.afternoon</text>
+</g>
+<!-- mode|::|(CT.normal,*,TT.afternoon)&#45;&#45;mode|::|(CT.normal,AT.contact,TT.afternoon) -->
+<g id="edge12" class="edge">
+<title>mode|::|(CT.normal,*,TT.afternoon)--mode|::|(CT.normal,AT.contact,TT.afternoon)</title>
+<path fill="none" stroke="#000000" d="M1007.8774,-71.8314C989.3831,-60.9167 965.9316,-47.0764 947.4391,-36.1628"></path>
+</g>
+<!-- mode|::|(CT.normal,AT.register,TT.afternoon) -->
+<g id="node22" class="node">
+<title style="">mode|::|(CT.normal,AT.register,TT.afternoon)</title>
+<polygon fill="none" stroke="#dcdcdc" stroke-width="2" points="1274.1223,-10.5442 1274.1223,-25.4558 1207.6595,-36 1113.6669,-36 1047.2041,-25.4558 1047.2041,-10.5442 1113.6669,0 1207.6595,0 1274.1223,-10.5442"></polygon>
+<text text-anchor="middle" x="1160.6632" y="-15" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#cd0000">CT.normal,AT.register,TT.afternoon</text>
+</g>
+<!-- mode|::|(CT.normal,*,TT.afternoon)&#45;&#45;mode|::|(CT.normal,AT.register,TT.afternoon) -->
+<g id="edge13" class="edge">
+<title>mode|::|(CT.normal,*,TT.afternoon)--mode|::|(CT.normal,AT.register,TT.afternoon)</title>
+<path fill="none" stroke="#000000" d="M1069.4489,-71.8314C1087.9432,-60.9167 1111.3947,-47.0764 1129.8873,-36.1628"></path>
+</g>
+<!-- mode|::|(CT.normal,AT.check,TT.morning) -->
+<g id="node23" class="node">
+<title style="">mode|::|(CT.normal,AT.check,TT.morning)</title>
+<polygon fill="#dcdcdc" stroke="#dcdcdc" points="1501.2532,-10.5442 1501.2532,-25.4558 1439.9858,-36 1353.3406,-36 1292.0731,-25.4558 1292.0731,-10.5442 1353.3406,0 1439.9858,0 1501.2532,-10.5442" style=""></polygon>
+<text text-anchor="middle" x="1396.6632" y="-15" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000" style="">CT.normal,AT.check,TT.morning</text>
+</g>
+<!-- mode|::|(CT.normal,*,TT.morning)&#45;&#45;mode|::|(CT.normal,AT.check,TT.morning) -->
+<g id="edge14" class="edge">
+<title style="">mode|::|(CT.normal,*,TT.morning)--mode|::|(CT.normal,AT.check,TT.morning)</title>
+<path fill="none" stroke="#000000" d="M1396.6632,-71.8314C1396.6632,-61 1396.6632,-47.2876 1396.6632,-36.4133"></path>
+</g>
+<!-- mode|::|(CT.normal,AT.decide,TT.morning) -->
+<g id="node24" class="node">
+<title style="">mode|::|(CT.normal,AT.decide,TT.morning)</title>
+<polygon fill="#dcdcdc" stroke="#dcdcdc" points="1733.5968,-10.5442 1733.5968,-25.4558 1670.9565,-36 1582.3698,-36 1519.7295,-25.4558 1519.7295,-10.5442 1582.3698,0 1670.9565,0 1733.5968,-10.5442" style=""></polygon>
+<text text-anchor="middle" x="1626.6632" y="-15" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000" style="">CT.normal,AT.decide,TT.morning</text>
+</g>
+<!-- mode|::|(CT.normal,*,TT.morning)&#45;&#45;mode|::|(CT.normal,AT.decide,TT.morning) -->
+<g id="edge15" class="edge">
+<title style="">mode|::|(CT.normal,*,TT.morning)--mode|::|(CT.normal,AT.decide,TT.morning)</title>
+<path fill="none" stroke="#000000" d="M1444.3193,-75.0816C1481.9509,-63.3012 1534.4371,-46.8708 1573.4405,-34.661"></path>
+</g>
+</g>
+</svg></div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Process model view-->
+    <div class="row my-3 collapse" id="view-proc-m">
+    <div class="col">
+        <div class="row shadow-sm">
+        <div class="col-4 px-0">
+            <ul class="nav nav-pills small">
+                <li class="nav-item">
+                    <a class="nav-link bg-info text-white active">
+                        Process model view
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-8 px-0">
+            <ul class="nav nav-pills small float-right">
+                <li class="nav-item ml-2">
+                    <a class="nav-link bg-secondary text-white reset-btn" label="process-model">
+                        Reset view
+                    </a>
+                </li>
+                <li class="nav-item ml-2">
+                    <a class="nav-link bg-secondary text-white export-btn" label="process-model">
+                        Export
+                    </a>
+                </li>
+            </ul>
+        </div>
+        </div>
+
+        <div class="row">
+        <div class="col mx-auto svg-container border border-info rounded
+            text-center shadow" id="canvas-proc-m" label="process-model">
+        <svg width="-31.979166" viewBox="0 0 -23.9843745 488" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="488pt">
+<g id="graph0" class="graph" transform="translate(4,484) scale(1)">
+<title>%0</title>
+<!-- &#45;5450308588511233044 -->
+<g id="node1" class="node">
+<title>-5450308588511233044</title>
+<polygon fill="#dcdcdc" stroke="#000000" points="93.6783,-124.8 0.1071,-124.8 0.1071,-88.8 93.6783,-88.8 93.6783,-124.8"></polygon>
+<text text-anchor="middle" x="46.8927" y="-102.6" font-family="Helvetica,sans-Serif" font-size="14.00" fill="#000000">accept claim</text>
+</g>
+<!-- &#45;7310284019780439298 -->
+<g id="node2" class="node">
+<title>-7310284019780439298</title>
+<polygon fill="#dcdcdc" stroke="#000000" points="84.505,-36 9.2804,-36 9.2804,0 84.505,0 84.505,-36"></polygon>
+<text text-anchor="middle" x="46.8927" y="-13.8" font-family="Helvetica,sans-Serif" font-size="14.00" fill="#000000">pay claim</text>
+</g>
+<!-- &#45;5450308588511233044&#45;&gt;&#45;7310284019780439298 -->
+<g id="edge1" class="edge">
+<title>-5450308588511233044-&gt;-7310284019780439298</title>
+<path fill="none" stroke="#000000" d="M58.568,-88.4006C58.568,-76.2949 58.568,-60.2076 58.568,-46.4674"></path>
+<polygon fill="#000000" stroke="#000000" points="50.3928,-46.072 46.8927,-36.072 43.3928,-46.0721 50.3928,-46.072"></polygon>
+<text text-anchor="middle" x="50.3927" y="-58.2" font-family="Times,serif" font-size="14.00" fill="#000000">1</text>
+</g>
+<!-- 3228614197914950548 -->
+<g id="node3" class="node">
+<title>3228614197914950548</title>
+<polygon fill="#dcdcdc" stroke="#000000" points="159.5288,-213.6 42.2566,-213.6 42.2566,-177.6 159.5288,-177.6 159.5288,-213.6"></polygon>
+<text text-anchor="middle" x="100.8927" y="-191.4" font-family="Helvetica,sans-Serif" font-size="14.00" fill="#000000">check insurance</text>
+</g>
+<!-- 3228614197914950548&#45;&gt;&#45;5450308588511233044 -->
+<g id="edge2" class="edge">
+<title>3228614197914950548-&gt;-5450308588511233044</title>
+<path fill="none" stroke="#000000" d="M58.568,-177.2006C58.568,-165.0949 58.568,-149.0076 58.568,-135.2674"></path>
+<polygon fill="#000000" stroke="#000000" points="66.0688,-131.5977 57.8824,-124.872 60.0878,-135.2348 66.0688,-131.5977"></polygon>
+<text text-anchor="middle" x="82.3927" y="-147" font-family="Times,serif" font-size="14.00" fill="#000000">1</text>
+</g>
+<!-- &#45;773979345129593169 -->
+<g id="node5" class="node">
+<title>-773979345129593169</title>
+<polygon fill="#dcdcdc" stroke="#000000" points="157.3494,-302.4 44.436,-302.4 44.436,-266.4 157.3494,-266.4 157.3494,-302.4"></polygon>
+<text text-anchor="middle" x="100.8927" y="-280.2" font-family="Helvetica,sans-Serif" font-size="14.00" fill="#000000">confirm request</text>
+</g><g id="node4" class="node">
+<title>-1541390428843390795</title>
+<polygon fill="#dcdcdc" stroke="#000000" points="198.163,-124.8 111.6224,-124.8 111.6224,-88.8 198.163,-88.8 198.163,-124.8"></polygon>
+<text text-anchor="middle" x="154.8927" y="-102.6" font-family="Helvetica,sans-Serif" font-size="14.00" fill="#000000">reject claim</text>
+</g>
+<!-- &#45;773979345129593169&#45;&gt;3228614197914950548 -->
+<g id="edge4" class="edge">
+<title>-773979345129593169-&gt;3228614197914950548</title>
+<path fill="none" stroke="#000000" d="M58.568,-266.0006C58.568,-253.8949 58.568,-237.8076 58.568,-224.0674" stroke-width="2.6"></path>
+<polygon fill="#000000" stroke="#000000" points="104.3928,-223.672 100.8927,-213.672 97.3928,-223.6721 104.3928,-223.672" stroke-width="2.6"></polygon>
+<text text-anchor="middle" x="104.3927" y="-235.8" font-family="Times,serif" font-size="14.00" fill="#000000">2</text>
+</g><g id="edge3" class="edge">
+<title>3228614197914950548-&gt;-1541390428843390795</title>
+<path fill="none" stroke="#000000" d="M112.0815,-177.2006C119.7347,-164.6155 130.0046,-147.7271 138.5673,-133.6463"></path>
+<polygon fill="#000000" stroke="#000000" points="141.6976,-135.2348 143.903,-124.872 135.7166,-131.5977 141.6976,-135.2348"></polygon>
+<text text-anchor="middle" x="135.3927" y="-147" font-family="Times,serif" font-size="14.00" fill="#000000">1</text>
+</g>
+<!-- 4040537605797284228 -->
+<!-- &#45;4622221836835723594 -->
+<g id="node6" class="node">
+<title>-4622221836835723594</title>
+<polygon fill="#dcdcdc" stroke="#000000" points="211.6314,-391.2 98.154,-391.2 98.154,-355.2 211.6314,-355.2 211.6314,-391.2"></polygon>
+<text text-anchor="middle" x="154.8927" y="-369" font-family="Helvetica,sans-Serif" font-size="14.00" fill="#000000">get missing info</text>
+</g>
+<!-- &#45;4622221836835723594&#45;&gt;&#45;773979345129593169 -->
+<g id="edge5" class="edge">
+<title>-4622221836835723594-&gt;-773979345129593169</title>
+<path fill="none" stroke="#000000" d="M143.7039,-354.8006C136.0507,-342.2155 125.7808,-325.3271 117.2181,-311.2463"></path>
+<polygon fill="#000000" stroke="#000000" points="120.0688,-309.1977 111.8824,-302.472 114.0878,-312.8348 120.0688,-309.1977"></polygon>
+<text text-anchor="middle" x="135.3927" y="-324.6" font-family="Times,serif" font-size="14.00" fill="#000000">1</text>
+</g>
+<!-- 4040537605797284228 -->
+<g id="node7" class="node">
+<title>4040537605797284228</title>
+<polygon fill="#dcdcdc" stroke="#000000" points="145.6314,-480 32.154,-480 32.154,-444 145.6314,-444 145.6314,-480"></polygon>
+<text text-anchor="middle" x="88.8927" y="-457.8" font-family="Helvetica,sans-Serif" font-size="14.00" fill="#000000">register request</text>
+</g>
+<!-- 4040537605797284228&#45;&gt;&#45;773979345129593169 -->
+
+<!-- 4040537605797284228&#45;&gt;&#45;773979345129593169 -->
+<g id="edge6" class="edge">
+<title>4040537605797284228-&gt;-773979345129593169</title>
+<path fill="none" stroke="#000000" d="M58.568,-354.8006C58.568,-342.6949 58.568,-326.6076 58.568,-312.8674"></path>
+<polygon fill="#000000" stroke="#000000" points="95.0206,-313.0582 94.6347,-302.4704 88.3337,-310.988 95.0206,-313.0582"></polygon>
+<text text-anchor="middle" x="85.3927" y="-369" font-family="Times,serif" font-size="14.00" fill="#000000">1</text>
+</g>
+
+<!-- 4040537605797284228&#45;&gt;&#45;4622221836835723594 -->
+<g id="edge7" class="edge">
+<title>4040537605797284228-&gt;-4622221836835723594</title>
+<path fill="none" stroke="#000000" d="M102.5679,-443.6006C112.0108,-430.8956 124.7133,-413.8051 135.2378,-399.6448"></path>
+<polygon fill="#000000" stroke="#000000" points="138.3046,-401.3858 141.4608,-391.272 132.6864,-397.2101 138.3046,-401.3858"></polygon>
+<text text-anchor="middle" x="130.3927" y="-413.4" font-family="Times,serif" font-size="14.00" fill="#000000">1</text>
+</g>
+</g>
+</svg></div>
+        </div>
+    </div>
+    </div>
+</div>
+
+<!-- Right panel: for statistics report -->
+<div class="col-3">
+    <!-- Stats of global conformance -->
+    <div class="row my-3 text-nowrap">
+    <div class="col">
+        <ul class="nav nav-pills small">
+            <li class="nav-item">
+                <a class="nav-link bg-info text-white active">
+                    Global Conformance
+                </a>
+            </li>
+        </ul>
+
+        <div class="border border-info rounded py-2 bg-light">
+            <div class="card-deck mx-auto text-center">
+                <div class="card border-0">
+                    <div class="card-body font-weight-bold bg-light py-1 px-0">
+                        <h5 class="score-card-val">
+                            {{ '{:.3f}'.format(fitness_org_model) }}
+                        </h5>
+                    </div>
+                    <div class="card-footer small text-secondary
+                    border-0 py-0 px-0">
+                        Fitness
+                    </div>
+                </div>
+            </div>
+            <div class="card-deck mx-auto text-center">
+
+                <div class="card border-0">
+                    <div class="card-body font-weight-bold bg-light py-1 px-0">
+                        <h5 class="score-card-val">
+                            {{ '{:.3f}'.format(precision_org_model) }}
+                        </h5>
+                    </div>
+                    <div class="card-footer small text-secondary
+                    border-0 py-0 px-0">
+                        Precision
+                    </div>
+                </div>
+            </div>
+            <div class="card-deck mx-auto text-center">
+                <div class="card border-0">
+                    <div class="card-body font-weight-bold bg-light py-1 px-0">
+                        <h5 class="score-card-val">
+                            {{ '{:.3f}'.format(resource_functional_similarity) }}
+                        </h5>
+                    </div>
+                    <div class="card-footer small text-secondary
+                    border-0 py-0 px-0">
+                        accuracy
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Stats of local diagnostics -->
+{#    <div class="row my-3">#}
+{#    <div class="col">#}
+{#        <ul class="nav nav-pills small">#}
+{#            <li class="nav-item">#}
+{#                <a class="nav-link bg-info text-white active">#}
+{#                    Local Diagnostics#}
+{#                </a>#}
+{#            </li>#}
+{#        </ul>#}
+{##}
+{#        <div class="border border-info rounded py-2 bg-light container">#}
+{#            <!-- 1. Report basic statistics -->#}
+{#            <div class="row mt-2">#}
+{#            <div class="card mx-auto text-center border-0">#}
+{#                <div class="card-body font-weight-bold bg-light py-1 px-0"#}
+{#                    id="ld-group-name">#}
+{#                    <h5 class="score-card-val">-</h5>#}
+{#                </div>#}
+{#            </div>#}
+{#            </div>#}
+{##}
+{#            <div class="card-deck mx-auto text-center text-nowrap mt-2">#}
+{#                <div class="card border-0">#}
+{#                    <div class="card-body font-weight-bold bg-light py-1 px-0"#}
+{#                        id="ld-group-mem-num">#}
+{#                        <h5 class="score-card-val">-</h5>#}
+{#                    </div>#}
+{#                    <div class="card-footer small text-secondary#}
+{#                    border-0 py-0 px-0">#}
+{#                        Members#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="card border-0">#}
+{#                    <div class="card-body font-weight-bold bg-light py-1 px-0"#}
+{#                        id="ld-group-cap-num">#}
+{#                        <h5 class="score-card-val">-</h5>#}
+{#                    </div>#}
+{#                    <div class="card-footer small text-secondary#}
+{#                    border-0 py-0 px-0">#}
+{#                        Capabilities#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="card border-0">#}
+{#                    <div class="card-body font-weight-bold bg-light py-1 px-0"#}
+{#                        id="ld-group-events-num">#}
+{#                        <h5 class="score-card-val">-</h5>#}
+{#                    </div>#}
+{#                    <div class="card-footer small text-secondary#}
+{#                    border-0 py-0 px-0">#}
+{#                        Executions#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{##}
+{#            <!-- This is a cutting line -->#}
+{#            <div class="row col-12 border-bottom mt-3 mx-0"></div>#}
+{##}
+{#            <div class="row mt-3">#}
+{#            <div class="row col-12 mt-2">#}
+{#                <div class="col-3">#}
+{#                    <div class="card-footer text-secondary text-right#}
+{#                        bg-light border-0 py-0 px-0 small">#}
+{#                        Case<br>Type#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="col-9">#}
+{#                    <div class="card-body font-weight-bold text-left#}
+{#                        bg-light py-0 px-0" id="ld-mode-ct">#}
+{#                        <h6 class="score-card-val">-</h6>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#            <div class="row col-12 mt-2">#}
+{#                <div class="col-3">#}
+{#                    <div class="card-footer text-secondary text-right#}
+{#                        bg-light border-0 py-0 px-0 small">#}
+{#                        Activity<br>Type#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="col-9">#}
+{#                    <div class="card-body font-weight-bold text-left#}
+{#                        bg-light py-0 px-0" id="ld-mode-at">#}
+{#                        <h6 class="score-card-val">-</h6>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#            <div class="row col-12 mt-2">#}
+{#                <div class="col-3">#}
+{#                    <div class="card-footer text-secondary text-right#}
+{#                        bg-light border-0 py-0 px-0 small">#}
+{#                        Time<br>Type#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="col-9">#}
+{#                    <div class="card-body font-weight-bold text-left#}
+{#                        bg-light py-0 px-0" id="ld-mode-tt">#}
+{#                        <h6 class="score-card-val">-</h6>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#            </div>#}
+{##}
+{#            <div class="card-deck mx-auto text-center text-nowrap mt-3">#}
+{#                <div class="card border-0">#}
+{#                    <div class="card-body font-weight-bold bg-light py-1 px-0"#}
+{#                        id="ld-mode-events-num">#}
+{#                        <h5 class="score-card-val">-</h5>#}
+{#                    </div>#}
+{#                    <div class="card-footer small text-secondary#}
+{#                    border-0 py-0 px-0">#}
+{#                        Executions<br>(total)#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="card border-0">#}
+{#                    <div class="card-body font-weight-bold bg-light py-1 px-0"#}
+{#                        id="ld-mode-group-events-num">#}
+{#                        <h5 class="score-card-val">-</h5>#}
+{#                    </div>#}
+{#                    <div class="card-footer small text-secondary#}
+{#                    border-0 py-0 px-0">#}
+{#                        Executions<br>(this group)#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="card border-0">#}
+{#                    <div class="card-body font-weight-bold bg-light py-1 px-0"#}
+{#                        id="ld-mode-group-num">#}
+{#                        <h5 class="score-card-val">-</h5>#}
+{#                    </div>#}
+{#                    <div class="card-footer small text-secondary#}
+{#                    border-0 py-0 px-0">#}
+{#                        Groups<br>(capable)#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{##}
+{#            <!-- This is a cutting line -->#}
+{#            <div class="row col-12 border-bottom mt-3 mx-0"></div>#}
+{##}
+{#            <!-- 2. Report local diagnostic measures -->#}
+{#            <div class="card-deck mx-auto text-center text-nowrap mt-3">#}
+{#                <div class="card border-0">#}
+{#                    <div class="card-body font-weight-bold bg-light py-1 px-0"#}
+{#                        id="ld-relative-focus">#}
+{#                        <h5 class="score-card-val">-</h5>#}
+{#                    </div>#}
+{#                    <div class="card-footer small text-secondary#}
+{#                    border-0 py-0 px-0">#}
+{#                        Relative<br>focus#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="card border-0">#}
+{#                    <div class="card-body font-weight-bold bg-light py-1 px-0"#}
+{#                        id="ld-relative-stake">#}
+{#                        <h5 class="score-card-val">-</h5>#}
+{#                    </div>#}
+{#                    <div class="card-footer small text-secondary#}
+{#                    border-0 py-0 px-0">#}
+{#                        Relative<br>Stake#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="card border-0">#}
+{#                    <div class="card-body font-weight-bold bg-light py-1 px-0"#}
+{#                        id="ld-coverage">#}
+{#                        <h5 class="score-card-val">-</h5>#}
+{#                    </div>#}
+{#                    <div class="card-footer small text-secondary#}
+{#                    border-0 py-0 px-0">#}
+{#                        Coverage#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{##}
+{#            <div class="row mt-3">#}
+{#                <div class="col-12 mx-auto card-footer#}
+{#                    small text-secondary text-center border-0 bg-light">#}
+{#                    Member Contribution#}
+{#                </div>#}
+{#                <div class="col-12 mx-auto svg-container text-center small"#}
+{#                    id="canvas-ld-memcontr">#}
+{#                </div>#}
+{#            </div>#}
+{##}
+{#        </div>#}
+{#    </div>#}
+{#    </div>#}
+
+</div>
+
+<!-- End of outer row -->
+</div>
+{% endblock %}
+
+{% block javascript %}
+<script src="{{url_for('static', filename='js/d3.v4.min.js')}}"></script>
+<script src="{{url_for('static', filename='js/viz.js')}}"></script>
+<script src="{{url_for('static', filename='js/d3-graphviz.js')}}"></script>
+<script src="{{url_for('static', filename='js/d3-save-svg.min.js')}}"></script>
+<script src="{{url_for('static', filename='js/saveSvgAsPng.js')}}"></script>
+
+<script src="{{url_for('static', filename='js/my-.event.js')}}"></script>
+<script src="{{url_for('static', filename='js/my-controller.js')}}"></script>
+{% endblock %}

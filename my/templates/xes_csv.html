@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block main %}
+<div>
+    <div class="row">
+        <div class="w-50 mx-auto my-4 border border-dark rounded p-4">
+        <h4 class="mb-4">日志格式转换</h4>
+{#        <form action="/xes_to_csv" method="POST" enctype="multipart/form-data">#}
+{#            {{ log_upload_form.csrf_token }}#}
+{#            <div class="form-group w-50 mx-auto small">#}
+{#                {{ wtf.form_field(log_upload_form.f_log) }}#}
+{#            </div>#}
+{##}
+{#            <div class="form-group w-50 mx-auto small">#}
+{#<div class="form-group  required"><label class="control-label" for="f_log">选择具有以下扩展名之一的事件日志文件</label>#}
+{##}
+{#          <input id="f_log" name="f_log" required="" type="file">#}
+{##}
+{#  </div>#}
+{#            </div>#}
+{##}
+{##}
+{##}
+{##}
+{#        <div class="form-group w-75 mx-auto">#}
+{#            <ul class="list-group-flush">#}
+{#                <li class="list-group-item small">#}
+{#                    <code> .xes </code>#}
+{#                    XES是一种基于xml的事件日志记录标准。关于XES的最新信息可在以下网站找到#}
+{#                    <a href="http://www.xes-standard.org/">http://www.xes-standard.org</a>.#}
+{#                </li>#}
+{#            </ul>#}
+{#        </div>#}
+{#            {{ wtf.form_field(#}
+{#            log_upload_form.submit,#}
+{#            button_map={'submit': 'btn btn-primary'}#}
+{#        )}}#}
+{#    </form>#}
+
+
+            <form action="/xes_to_csv" method="POST" enctype="multipart/form-data">
+            <input id="csrf_token" name="csrf_token" type="hidden" value="IjQ5NjBjN2VjMDExZTVmYTM1YjAyNzgxOTE4YTBjYTIyYTY2Y2M3NDMi.YemJdg.yuuaU9WP9j3rdkBLqOai-RpXzG0">
+
+
+
+
+            <div class="form-group w-50 mx-auto small">
+<div class="form-group  required"><label class="control-label" for="f_log">选择具有以下扩展名之一的事件日志文件</label>
+
+          <input id="f_log" name="f_log" required="" type="file">
+
+  </div>
+            </div>
+
+
+
+
+        <div class="form-group w-75 mx-auto">
+            <ul class="list-group-flush">
+                <li class="list-group-item small">
+                    <code> .xes </code>
+                    XES是一种基于xml的事件日志记录标准。关于XES的最新信息可在以下网站找到
+                    <a href="http://www.xes-standard.org/">http://www.xes-standard.org</a>.
+                </li>
+            </ul>
+        </div>
+
+    <input class="btn btn-btn btn-primary" id="submit" name="submit" type="submit" value="上传">
+    </form>
+</div>
+</div>
+</div>
+{% endblock %}

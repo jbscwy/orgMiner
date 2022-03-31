@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block main %}
+
+    {% if not has_resource_log %}
+    <div class="w-50 mx-auto my-4 border border-dark rounded p-4">
+    <form action="{{ url_for('org_model_mining.org_model_mining') }}"
+        method="POST" enctype="multipart/form-data">
+        <h4 class="mb-4"> Import an resource log </h4>
+        {{ resource_log.csrf_token }}
+        <div class="form-group w-50 mx-auto small">
+            {{ wtf.form_field(resource_log.f_log) }}
+        </div>
+
+        <div class="form-group w-75 mx-auto">
+            <ul class="list-group-flush">
+                <li class="list-group-item small">
+                    <code> .csv </code>
+                    eXtensible Event Stream file,
+                    which is expected to be compatible with
+                    <a href="https://pm4py.fit.fraunhofer.de/documentation#importing">PM4Py</a>.
+                </li>
+            </ul>
+        </div>
+
+        {{ wtf.form_field(
+            resource_log.submit,
+            button_map={'submit': 'btn btn-primary'}
+        )}}
+    </form>
+    </div>
+    {% else %}
+
+    <div class="row">
+    <div class="w-75 mx-auto my-4 border border-dark rounded p-4">
+        <form action="{{ url_for('org_model_mining.reset_resource_log') }}" method="GET">
+            <input class="btn btn-secondary text-white"
+                type="submit" value="Clear and Reset">
+        </form>
+        <h4 class="mb-4"> Configure organize model mining attributes</h4>
+
+        {# the target URL is supposed to be set dynamically (hard-coded now) #}
+        <form action={{ url_for('org_model_mining.org_model_mining') }}
+                   method="POST" enctype="multipart/form-data">
+            <div class="config-section row my-4 p-2 border">
+                 <div class="input-group">
+                       {{ wtf.form_field(org_model_mining_attributes.organization_model_mining_method) }}
+                 </div>
+            </div>
+
+            <div class="config-section row my-4 p-2 border">
+                 <div class="input-group">
+                       {{ wtf.form_field(org_model_mining_attributes.resource_similarity_method) }}
+                    </div>
+            </div>
+
+            <div class="config-section row my-4 p-2 border">
+                <div class="input-group">
+                    {{ wtf.form_field(org_model_mining_attributes.group_num_range) }}
+                </div>
+            </div>
+
+
+            <div class="config-section row my-4 p-2 border">
+             <div class="config-method col-md-6">
+                    {{ wtf.form_field(org_model_mining_attributes.assign_execution_mode_method) }}
+             </div>
+            <div class="config-method-options col-md-6 small">
+                 <div>
+                    {{ wtf.form_field(org_model_mining_attributes.w1) }}
+                 </div>
+                <div>
+                    {{ wtf.form_field(org_model_mining_attributes.w2) }}
+                </div>
+            </div>
+            </div>
+
+
+
+                <div class="row">
+            {{ wtf.form_field(
+                org_model_mining_attributes.submit,
+                button_map={'submit': 'btn btn-success'}
+            )}}
+            </div>
+        </form>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block javascript %}
+<script>
+    $(document).ready(function(){
+        // 1. Hide all options of methods
+        $(".config-method-options > div").hide();
+        // 2. Attach event listeners to methods
+        $(".config-method > .form-group > .form-control").change(function(){
+            var id = $(this).attr("config_id");
+            var v = $(this).val();
+
+            $(this).find('option[value="None"]').remove();
+
+            for (var div of $(".config-method-options > div")) {
+                var cfgOpt = $(".form-control", div);
+                if (cfgOpt.attr("prerequisite_id") == id) {
+                    if (cfgOpt.attr("prerequisite_value").split(",").includes(v)) {
+                        $(cfgOpt).prop("disabled", false);
+                        $(div).show();
+                    } else {
+                        $(cfgOpt).prop("disabled", true);
+                        $(div).hide();
+                    }
+                } else {
+                    // do nothing
+                }
+            }
+        });
+    });
+</script>
+{% endblock %}
+

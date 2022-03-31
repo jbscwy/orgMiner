@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block main %}
+
+
+
+
+    {% if not has_xes_log %}
+        <div class="w-50 mx-auto my-4 border border-dark rounded p-4">
+    <form action="{{ url_for('bpmn_model_mining.bpmn_model_mining') }}"
+        method="POST" enctype="multipart/form-data">
+        <h4 class="mb-4"> Import an xes log </h4>
+        {{ xes_log.csrf_token }}
+        <div class="form-group w-50 mx-auto small">
+            {{ wtf.form_field(xes_log.f_log) }}
+        </div>
+
+        <div class="form-group w-75 mx-auto">
+            <ul class="list-group-flush">
+                <li class="list-group-item small">
+                    <code> .xes </code>
+                    eXtensible Event Stream file,
+                    which is expected to be compatible with
+                    <a href="https://pm4py.fit.fraunhofer.de/documentation#importing">PM4Py</a>.
+                </li>
+            </ul>
+        </div>
+
+        {{ wtf.form_field(
+            xes_log.submit,
+            button_map={'submit': 'btn btn-primary'}
+        )}}
+    </form>
+    </div>
+    {% else %}
+        <div class="w-75 mx-auto my-4 border border-dark rounded p-4">
+    <h4 class="mb-4"> Bpmn process model</h4>
+
+    <div class="row my-4">
+        <img class="img-fluid" style="width: auto;max-width: 100%"
+            src="{{ url_for('static', filename='process_model/'+png_name)
+        }}"
+            alt="Approach">
+    </div>
+        </div>
+    {% endif %}
+{% endblock %}

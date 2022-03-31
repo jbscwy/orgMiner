@@ -1,0 +1,14 @@
+# Ignore pyc
+*.pyc
+**/__pycache__
+
+# Ignore Vim undo log
+*.un~
+*.swp
+
+# Ignore VSCode config files
+.vscode/*
+
+# Ignore tmp files
+.tmp/*
+
